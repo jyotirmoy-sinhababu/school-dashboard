@@ -1,5 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import {
   Card,
   CardHeader,
@@ -8,21 +7,9 @@ import {
   CardDescription,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import {
-  Bell,
-  Calendar,
-  ChevronDown,
-  Home,
-  LayoutDashboard,
-  LogOut,
-  Menu,
-  MessageSquare,
-  Search,
-  Settings,
-  Users,
-} from 'lucide-react';
+import { LayoutDashboard, Users } from 'lucide-react';
 
-import { addDays, format } from 'date-fns';
+import { addDays } from 'date-fns';
 import { NewCalender } from '@/components/Calender';
 
 const HomePage = () => {

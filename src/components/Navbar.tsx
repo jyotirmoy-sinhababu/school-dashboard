@@ -5,15 +5,10 @@ import { Input } from './ui/input';
 
 import {
   Bell,
-  Calendar,
-  ChevronDown,
-  Home,
   LayoutDashboard,
-  LogOut,
   Menu,
   MessageSquare,
   Search,
-  Settings,
   Users,
 } from 'lucide-react';
 
