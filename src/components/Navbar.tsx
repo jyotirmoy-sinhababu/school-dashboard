@@ -12,38 +12,32 @@ import {
   Users,
 } from 'lucide-react';
 
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-  const navigate = useNavigate();
   return (
     <header className='sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 mx-[2%]'>
       <div className='container flex h-14 items-center'>
         <div className='mr-4 hidden md:flex'>
-          <a className='mr-6 flex items-center space-x-2' href='#'>
+          <Link className='mr-6 flex items-center space-x-2' to='/'>
             <LayoutDashboard className='h-6 w-6' />
-            <span
-              className='hidden font-bold sm:inline-block'
-              onClick={() => {
-                navigate('/');
-              }}
-            >
+            <span className='hidden font-bold sm:inline-block'>
               School Dashboard
             </span>
-          </a>
+          </Link>
           <nav className='flex items-center space-x-6 text-sm font-medium'>
-            <a
+            <Link
               className='transition-colors hover:text-foreground/80 text-foreground/60'
-              href='student'
+              to='/student'
             >
               Students
-            </a>
-            <a
+            </Link>
+            <Link
               className='transition-colors hover:text-foreground/80 text-foreground/60'
-              href='teacher'
+              to='/teacher'
             >
               Teachers
-            </a>
+            </Link>
           </nav>
         </div>
         <Sheet>
@@ -59,20 +53,20 @@ const Navbar = () => {
           </SheetTrigger>
           <SheetContent side='left' className='pr-0'>
             <nav className='grid gap-2 py-6'>
-              <a
+              <Link
                 className='flex w-full items-center py-2 text-lg font-semibold'
-                href='student'
+                to='/student'
               >
                 <Users className='mr-2 h-4 w-4' />
                 Students
-              </a>
-              <a
+              </Link>
+              <Link
                 className='flex w-full items-center py-2 text-lg font-semibold'
-                href='teacher'
+                to='/teacher'
               >
                 <Users className='mr-2 h-4 w-4' />
                 Teachers
-              </a>
+              </Link>
             </nav>
           </SheetContent>
         </Sheet>
