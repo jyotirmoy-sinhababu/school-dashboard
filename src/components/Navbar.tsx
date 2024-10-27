@@ -61,14 +61,14 @@ const Navbar = () => {
             <nav className='grid gap-2 py-6'>
               <a
                 className='flex w-full items-center py-2 text-lg font-semibold'
-                href='/student'
+                href='student'
               >
                 <Users className='mr-2 h-4 w-4' />
                 Students
               </a>
               <a
                 className='flex w-full items-center py-2 text-lg font-semibold'
-                href='/teacher'
+                href='teacher'
               >
                 <Users className='mr-2 h-4 w-4' />
                 Teachers
