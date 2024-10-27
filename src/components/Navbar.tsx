@@ -2,6 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
+
 import {
   Bell,
   Calendar,
@@ -16,41 +17,37 @@ import {
   Users,
 } from 'lucide-react';
 
+import { useNavigate } from 'react-router-dom';
+
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <header className='sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 mx-[2%]'>
       <div className='container flex h-14 items-center'>
         <div className='mr-4 hidden md:flex'>
           <a className='mr-6 flex items-center space-x-2' href='#'>
             <LayoutDashboard className='h-6 w-6' />
-            <span className='hidden font-bold sm:inline-block'>
+            <span
+              className='hidden font-bold sm:inline-block'
+              onClick={() => {
+                navigate('/');
+              }}
+            >
               School Dashboard
             </span>
           </a>
           <nav className='flex items-center space-x-6 text-sm font-medium'>
             <a
-              className='transition-colors hover:text-foreground/80 text-foreground'
-              href='#'
-            >
-              Home
-            </a>
-            <a
               className='transition-colors hover:text-foreground/80 text-foreground/60'
-              href='#'
+              href='/student'
             >
               Students
             </a>
             <a
               className='transition-colors hover:text-foreground/80 text-foreground/60'
-              href='#'
+              href='/teacher'
             >
               Teachers
-            </a>
-            <a
-              className='transition-colors hover:text-foreground/80 text-foreground/60'
-              href='#'
-            >
-              Classes
             </a>
           </nav>
         </div>
@@ -69,31 +66,17 @@ const Navbar = () => {
             <nav className='grid gap-2 py-6'>
               <a
                 className='flex w-full items-center py-2 text-lg font-semibold'
-                href='#'
-              >
-                <Home className='mr-2 h-4 w-4' />
-                Home
-              </a>
-              <a
-                className='flex w-full items-center py-2 text-lg font-semibold'
-                href='#'
+                href='/student'
               >
                 <Users className='mr-2 h-4 w-4' />
                 Students
               </a>
               <a
                 className='flex w-full items-center py-2 text-lg font-semibold'
-                href='#'
+                href='/teacher'
               >
                 <Users className='mr-2 h-4 w-4' />
                 Teachers
-              </a>
-              <a
-                className='flex w-full items-center py-2 text-lg font-semibold'
-                href='#'
-              >
-                <LayoutDashboard className='mr-2 h-4 w-4' />
-                Classes
               </a>
             </nav>
           </SheetContent>

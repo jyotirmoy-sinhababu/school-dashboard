@@ -1,5 +1,3 @@
-import Navbar from '@/components/Navbar';
-
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import {
@@ -25,6 +23,7 @@ import {
 } from 'lucide-react';
 
 import { addDays, format } from 'date-fns';
+import { NewCalender } from '@/components/Calender';
 
 const HomePage = () => {
   const events = [
@@ -51,7 +50,6 @@ const HomePage = () => {
   ];
   return (
     <div>
-      <Navbar />
       <main className='flex w-full flex-col overflow-hidden'>
         <div className='flex-1 space-y-4 p-8 pt-6'>
           <div className='flex items-center justify-between space-y-2'>
@@ -179,6 +177,9 @@ const HomePage = () => {
                 <CardDescription>
                   You have {events.length} events scheduled for this month.
                 </CardDescription>
+                <CardContent>
+                  <NewCalender />
+                </CardContent>
               </CardHeader>
             </Card>
           </div>

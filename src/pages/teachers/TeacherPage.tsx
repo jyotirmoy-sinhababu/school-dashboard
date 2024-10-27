@@ -12,45 +12,38 @@ import { dataContext } from '@/context/Context';
 import { useContext, useState } from 'react';
 import { Button } from '@/components/ui/button';
 
-const StudentPage = () => {
-  const { studentData, setStudentData } = useContext(dataContext);
-  const [data, setData] = useState({
-    studentName: '',
-    studentClass: '',
-    studentMarks: '',
+const TeacherPage = () => {
+  const { teacherData, setTeacherData } = useContext(dataContext);
+  const [data, setData] = useState<any>({
+    teacherName: '',
+    teacherClass: '',
+    teacherMarks: '',
   });
-  console.log(data);
-  console.log(studentData);
-
   return (
     <div className='md:mx-[20%] mx-[10%] mt-[3%]'>
       <Popover>
         <Card className='p-7'>
-          <CardTitle>Your Student Log </CardTitle>
-          <CardDescription>Enter all your student details</CardDescription>
-          <CardContent className='flex flex-col gap-3 mt-2  border-b'>
-            <PopoverTrigger className='border rounded-full w-20 h-9 hover:bg-slate-400 text-[0.8rem] flex justify-center items-center font-bold'>
+          <CardTitle>Your Teacher Log </CardTitle>
+          <CardDescription>Enter all your teacher details</CardDescription>
+          <CardContent className='flex flex-col gap-3 justify-end border-b'>
+            <PopoverTrigger className='border rounded-full w-20 h-9 hover:bg-slate-400 text-[0.8rem] flex justify-center items-center font-bold mt-2'>
               + Add
             </PopoverTrigger>
-            {studentData.length > 0 ? (
+            {teacherData.length > 0 ? (
               <div className='flex flex-col gap-2'>
-                {studentData?.map((item, index): any => {
+                {teacherData?.map((item, index): any => {
                   return (
                     <Card
                       key={index}
-                      className='flex flex-col pl-3 p-1 rounded-[5px]'
+                      className='flex justify-around rounded-[5px]'
                     >
-                      <div className='flex justify-around items-center'>
-                        <p className='text-[0.8rem]'>
-                          Name: {item.studentName}
-                        </p>
-                        <p className='text-[0.8rem]'>
-                          Class: {item.studentClass}
-                        </p>
-                        <p className='text-[0.8rem]'>
-                          Marks: {item.studentMarks}
-                        </p>
-                      </div>
+                      <p className='text-[0.8rem]'>Name: {item.teacherName}</p>
+                      <p className='text-[0.8rem]'>
+                        Class Assigned: {item.teacherClass}
+                      </p>
+                      <p className='text-[0.8rem]'>
+                        Period Assigned: {item.teacherMarks}
+                      </p>
                     </Card>
                   );
                 })}
@@ -62,42 +55,42 @@ const StudentPage = () => {
         </Card>
         <PopoverContent>
           <div className='mb-2'>
-            <h1>Student log</h1>
+            <h1>Teacher's log</h1>
           </div>
           <div className='flex flex-col gap-2'>
             <Input
-              placeholder='Add student name'
+              placeholder='Add teacher name'
               type='text'
               onChange={(e) =>
                 setData({
                   ...data,
-                  studentName: e.target.value,
+                  teacherName: e.target.value,
                 })
               }
             />
             <Input
-              placeholder='Enter a class'
+              placeholder='Assign class'
               type='number'
               onChange={(e) =>
                 setData({
                   ...data,
-                  studentClass: e.target.value,
+                  teacherClass: e.target.value,
                 })
               }
             />
             <Input
-              placeholder='Enter marks'
+              placeholder='Assign period'
               type='number'
               onChange={(e) =>
                 setData({
                   ...data,
-                  studentMarks: e.target.value,
+                  teacherMarks: e.target.value,
                 })
               }
             />
             <Button
               onClick={() => {
-                studentData.push(data);
+                teacherData.push(data);
               }}
             >
               Submit
@@ -109,4 +102,4 @@ const StudentPage = () => {
   );
 };
 
-export default StudentPage;
+export default TeacherPage;
