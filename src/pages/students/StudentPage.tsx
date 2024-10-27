@@ -13,7 +13,7 @@ import { useContext, useState } from 'react';
 import { Button } from '@/components/ui/button';
 
 const StudentPage = () => {
-  const { studentData, setStudentData } = useContext(dataContext);
+  const { studentData } = useContext(dataContext);
   const [data, setData] = useState({
     studentName: '',
     studentClass: '',
