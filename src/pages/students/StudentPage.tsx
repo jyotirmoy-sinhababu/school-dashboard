@@ -34,7 +34,7 @@ const StudentPage = () => {
             </PopoverTrigger>
             {studentData.length > 0 ? (
               <div className='flex flex-col gap-2'>
-                {studentData?.map((item, index): any => {
+                {studentData?.map((item: any, index: any) => {
                   return (
                     <Card
                       key={index}
