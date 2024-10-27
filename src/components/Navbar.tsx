@@ -34,13 +34,13 @@ const Navbar = () => {
           <nav className='flex items-center space-x-6 text-sm font-medium'>
             <a
               className='transition-colors hover:text-foreground/80 text-foreground/60'
-              href='/student'
+              href='student'
             >
               Students
             </a>
             <a
               className='transition-colors hover:text-foreground/80 text-foreground/60'
-              href='/teacher'
+              href='teacher'
             >
               Teachers
             </a>
