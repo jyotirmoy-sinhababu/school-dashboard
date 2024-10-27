@@ -14,7 +14,7 @@ import { Button } from '@/components/ui/button';
 
 const StudentPage = () => {
   const { studentData } = useContext(dataContext);
-  const [data, setData] = useState({
+  const [data, setData] = useState<any>({
     studentName: '',
     studentClass: '',
     studentMarks: '',
@@ -32,32 +32,6 @@ const StudentPage = () => {
             <PopoverTrigger className='border rounded-full w-20 h-9 hover:bg-slate-400 text-[0.8rem] flex justify-center items-center font-bold'>
               + Add
             </PopoverTrigger>
-            {studentData.length > 0 ? (
-              <div className='flex flex-col gap-2'>
-                {studentData?.map((item: any, index: any) => {
-                  return (
-                    <Card
-                      key={index}
-                      className='flex flex-col pl-3 p-1 rounded-[5px]'
-                    >
-                      <div className='flex justify-around items-center'>
-                        <p className='text-[0.8rem]'>
-                          Name: {item.studentName}
-                        </p>
-                        <p className='text-[0.8rem]'>
-                          Class: {item.studentClass}
-                        </p>
-                        <p className='text-[0.8rem]'>
-                          Marks: {item.studentMarks}
-                        </p>
-                      </div>
-                    </Card>
-                  );
-                })}
-              </div>
-            ) : (
-              <div></div>
-            )}
           </CardContent>
         </Card>
         <PopoverContent>
@@ -98,6 +72,7 @@ const StudentPage = () => {
             <Button
               onClick={() => {
                 studentData.push(data);
+                setData({});
               }}
             >
               Submit
@@ -105,6 +80,26 @@ const StudentPage = () => {
           </div>
         </PopoverContent>
       </Popover>
+      {studentData.length != 0 ? (
+        <div className='flex flex-col gap-2 mt-2'>
+          {studentData?.map((item: any, index: any) => {
+            return (
+              <Card
+                key={index}
+                className='flex flex-col pl-3 p-1 rounded-[5px]'
+              >
+                <div className='flex justify-around items-center'>
+                  <p className='text-[0.8rem]'>Name: {item.studentName}</p>
+                  <p className='text-[0.8rem]'>Class: {item.studentClass}</p>
+                  <p className='text-[0.8rem]'>Marks: {item.studentMarks}</p>
+                </div>
+              </Card>
+            );
+          })}
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };

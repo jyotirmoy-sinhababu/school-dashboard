@@ -29,28 +29,6 @@ const TeacherPage = () => {
             <PopoverTrigger className='border rounded-full w-20 h-9 hover:bg-slate-400 text-[0.8rem] flex justify-center items-center font-bold mt-2'>
               + Add
             </PopoverTrigger>
-            {teacherData.length > 0 ? (
-              <div className='flex flex-col gap-2'>
-                {teacherData?.map((item: any, index: any): any => {
-                  return (
-                    <Card
-                      key={index}
-                      className='flex justify-around rounded-[5px]'
-                    >
-                      <p className='text-[0.8rem]'>Name: {item.teacherName}</p>
-                      <p className='text-[0.8rem]'>
-                        Class Assigned: {item.teacherClass}
-                      </p>
-                      <p className='text-[0.8rem]'>
-                        Period Assigned: {item.teacherMarks}
-                      </p>
-                    </Card>
-                  );
-                })}
-              </div>
-            ) : (
-              <div></div>
-            )}
           </CardContent>
         </Card>
         <PopoverContent>
@@ -91,6 +69,7 @@ const TeacherPage = () => {
             <Button
               onClick={() => {
                 teacherData.push(data);
+                setData({});
               }}
             >
               Submit
@@ -98,6 +77,25 @@ const TeacherPage = () => {
           </div>
         </PopoverContent>
       </Popover>
+      {teacherData.length > 0 ? (
+        <div className='flex flex-col gap-2 mt-2'>
+          {teacherData?.map((item: any, index: any): any => {
+            return (
+              <Card key={index} className='flex justify-around rounded-[5px]'>
+                <p className='text-[0.8rem]'>Name: {item.teacherName}</p>
+                <p className='text-[0.8rem]'>
+                  Class Assigned: {item.teacherClass}
+                </p>
+                <p className='text-[0.8rem]'>
+                  Period Assigned: {item.teacherMarks}
+                </p>
+              </Card>
+            );
+          })}
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };
